@@ -4,10 +4,10 @@ defmodule SmileApp.Repo.Migrations.CreateRatings do
   def change do
     create table(:ratings) do
       add :stars, :integer
-      add :book_id, references(:book)
-
+      add :book_id, references(:books)
+      timestamps()
     end
 
-    create unique_index(:ratings, [:book_id])
+    # create unique_index(:ratings, [:book_id])
   end
 end

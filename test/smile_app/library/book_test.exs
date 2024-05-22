@@ -1,8 +1,8 @@
 defmodule SmileApp.Library.BookTest do
-  use ExUnit.Case
+  use SmileApp.DataCase
 
-  import Ecto.Query
-  alias SmileApp.Repo
+  # import Ecto.Query
+  # alias SmileApp.Repo
   alias SmileApp.Library.Book
 
   test "get all rows" do
@@ -48,7 +48,8 @@ defmodule SmileApp.Library.BookTest do
     # transform the data to a list of tuple
     from(b in Book, select: %{isbn: b.isbn, book: {b.title, b.status}})
     |> Repo.all()
-    |> IO.inspect()
+
+    # |> IO.inspect()
 
     assert SmileApp.hello() == :world
   end

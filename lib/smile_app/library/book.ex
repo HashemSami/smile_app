@@ -1,6 +1,7 @@
 defmodule SmileApp.Library.Book do
   use Ecto.Schema
   import Ecto.Changeset
+  alias SmileApp.Feedback.Rating
 
   schema "books" do
     field(:title, :string)
@@ -10,6 +11,8 @@ defmodule SmileApp.Library.Book do
     field(:status, :string, default: "working")
 
     timestamps()
+
+    has_many(:ratings, Rating)
   end
 
   def changeset(book, params \\ %{}) do

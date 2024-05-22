@@ -4,8 +4,5 @@ config :smile_app, SmileApp.Repo,
   database: "smile_app_dev",
   username: "postgres",
   password: "postgres",
-  hostname: "localhost"
-
-config :smile_app, ecto_repos: [SmileApp.Repo]
-
-import_config "#{config_env()}.exs"
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox
